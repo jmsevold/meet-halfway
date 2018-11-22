@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  survey_id: 
+  user_id: 
+  address: MyString
+  lat: 9.99
+  lon: 9.99
+
+two:
+  survey_id: 
+  user_id: 
+  address: MyString
+  lat: 9.99
+  lon: 9.99

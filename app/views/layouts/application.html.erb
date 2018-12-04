@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MeetHalfway</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+        <title><%= @title || 'Halfway' %></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <%= favicon_link_tag 'favicon.ico' %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="wrap">
+      <header class="space-bottom-lg">
+        <%= render 'layouts/navigation' %>
+      </header>
+      <div class="container" style='margin-top: 75px;'>
+        <center>
+          <% if notice %>
+            <p id="notice" style='font-weight:600;font-size:16px;background-color:#C8F2B0;border:1px solid green;padding:10px;'><%= notice %></p>
+          <% elsif alert %>
+            <p id="alert" style='font-weight:600;font-size:16px;background-color:#ffe5e5;border:1px solid red;padding:10px;'><%= alert %></p>
+          <% end %>
+        </center>
+        <%= yield %>
+      </div>
+    </div>
 
-<%= yield %>
-
-</body>
+    <hr>
+    <div class='footer' style='height:120px;'>
+      <center>
+        Copyright <%= Time.now.year %> by Halfway
+      </center>
+    </div>
+  </body>
+ 
 </html>

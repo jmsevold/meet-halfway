@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181121050100) do
+ActiveRecord::Schema.define(version: 20181204044111) do
 
   create_table "entries", force: :cascade do |t|
     t.integer  "survey_id"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20181121050100) do
 
   add_index "entries", ["survey_id"], name: "index_entries_on_survey_id"
   add_index "entries", ["user_id"], name: "index_entries_on_user_id"
+
+  create_table "halfway_links", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "halfway_links", ["user_id"], name: "index_halfway_links_on_user_id"
 
   create_table "surveys", force: :cascade do |t|
     t.integer  "user_id"

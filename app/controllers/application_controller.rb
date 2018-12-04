@@ -6,4 +6,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     dashboard_path
   end
+
+  def link
+    token = params[:token]
+    @link = HalfwayLink.where(token: token).first
+    render '/layouts/link'
+  end
 end

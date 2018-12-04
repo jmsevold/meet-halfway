@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index'
   resources :surveys
   resources :entries
+  get '/halfway/:token', to: 'application#link'
 end
